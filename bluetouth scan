@@ -1,0 +1,10 @@
+import bluetooth
+nearby_devices = bluetooth.discover_devices(lookup_names=True)
+print("found %d devices" % len(nearby_devices))
+for addr, name in nearby_devices:
+     print(" %s - %s" % (addr, name))
+     with open("devices1.txt", "w") as f:
+    for addr in nearby_devices:
+        f.write(str(addr))
+        
+f.close()
